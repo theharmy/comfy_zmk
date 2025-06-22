@@ -1,0 +1,5 @@
+config SHIELD_the_comfy_LEFT
+    def_bool $(shields_list_contains,the_comfy_left)
+
+config SHIELD_the_comfy_RIGHT
+    def_bool $(shields_list_contains,the_comfy_right)
