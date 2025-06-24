@@ -1,4 +1,4 @@
-if SHIELD_the_comfy_LEFT
+if SHIELD_the_comfy_DONGLE
 
 config ZMK_KEYBOARD_NAME
     default "the_comfy"
@@ -6,11 +6,47 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
-endif
-
-if SHIELD_the_comfy_LEFT || SHIELD_the_comfy_RIGHT
-
 config ZMK_SPLIT
     default y
+
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
+
+config BT_MAX_CONN 
+    default 5
+
+config BT_MAX_PAIRED 
+    default 5
+
+endif
+
+if ZMK_DISPLAY
+
+config I2C
+    default y
+
+config SSD1306
+    default y
+
+choice ZMK_DISPLAY_WORK_QUEUE
+    default ZMK_DISPLAY_WORK_QUEUE_DEDICATED
+endchoice
+
+endif
+
+if LVGL
+
+config LV_Z_VDB_SIZE
+    default 64
+
+config LV_DPI_DEF
+    default 149
+
+config LV_Z_BITS_PER_PIXEL
+    default 1
+
+choice LV_COLOR_DEPTH
+    default LV_COLOR_DEPTH_1
+endchoice
 
 endif
