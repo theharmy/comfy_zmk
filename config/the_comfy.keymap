@@ -41,7 +41,6 @@
             key-positions = <8 2>;
         };
 
-
         boot {
             bindings = <&bootloader>;
             key-positions = <22 33 4 5>;
@@ -55,8 +54,7 @@
 
         Col_overkeys {
             bindings = <&kp F13>;
-            key-positions = <22 33>;
-            layers = <1>;
+            key-positions = <33 21>;
         };
 
         Tog_Col {
@@ -65,38 +63,16 @@
             layers = <0>;
         };
 
-
         Tog_QWE {
             bindings = <&to 0>;
             key-positions = <0 9>;
             layers = <1>;
         };
-
-        Nav_Overkeys {
-            bindings = <&kp F14>;
-            key-positions = <22 33>;
-            layers = <2>;
-        };
-
-        Sym_Overkeys {
-            bindings = <&kp F15>;
-            key-positions = <22 33>;
-            layers = <3>;
-        };
-
-        Num_Overkeys {
-            bindings = <&kp F16>;
-            key-positions = <22 33>;
-            layers = <4>;
-        };
     };
 
-    
-
-
     behaviors {
-
         // Layer-tap for Enter: tap=Enter, hold=NAV layer + send F14
+
         lt_nav: layer_tap_nav {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_NAV";
@@ -108,6 +84,7 @@
         };
 
         // Layer-tap for Backspace: tap=Backspace, hold=SYM layer + send F15  
+
         lt_sym: layer_tap_sym {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_SYM";
@@ -119,6 +96,7 @@
         };
 
         // Layer-tap for Tab: tap=Tab, hold=NUM layer + send F16
+
         lt_num: layer_tap_num {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_NUM";
@@ -128,7 +106,6 @@
             quick-tap-ms = <125>;
             bindings = <&mo>, <&kp>;
         };
-
 
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
@@ -172,9 +149,9 @@
         QWE {
             display-name = "QWE";
             bindings = <
-           &kp DE_Q        &kp W        &kp E         &kp R          &kp T                                      &kp DE_Z         &kp U          &kp I                &kp O             &kp DE_DQT
-&kp TAB    &kp A           &kp S        &kp D         &kp F          &kp G                                      &kp H            &kp DE_J       &kp DE_K             &kp DE_L          &kp DE_P            &kp BACKSPACE
-&kp LCTRL  &hml LGUI DE_Y  &hml LALT X  &hml LCTRL C  &hml LSHIFT V  &kp B                                      &kp N            &hmr LSHIFT M  &hmr LCTRL DE_COMMA  &hmr LALT DE_DOT  &hmr LGUI DE_MINUS  &kp DEL
+           &kp DE_Q        &kp W        &kp E         &kp R          &kp T                                              &kp DE_Z        &kp U          &kp I                &kp O             &kp DE_DQT
+&kp TAB    &kp A           &kp S        &kp D         &kp F          &kp G                                              &kp H           &kp DE_J       &kp DE_K             &kp DE_L          &kp DE_P            &kp BACKSPACE
+&kp LCTRL  &hml LGUI DE_Y  &hml LALT X  &hml LCTRL C  &hml LSHIFT V  &kp B                                              &kp N           &hmr LSHIFT M  &hmr LCTRL DE_COMMA  &hmr LALT DE_DOT  &hmr LGUI DE_MINUS  &kp DEL
                            &kp PG_DN    &kp PG_UP     &mt LALT ESC   &mt LSHFT SPACE  &lt_num 4 TAB    &lt_nav 2 ENTER  &lt_sym 3 BSPC  &kp DE_COLON   &kp DOWN             &kp UP
             >;
         };
@@ -192,9 +169,9 @@
         NAV {
             display-name = "NAV";
             bindings = <
-        &kp LA(TAB)  &kp LS(TAB)  &kp LC(PAGE_DOWN)  &kp LC(PG_UP)  &kp TAB                    &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans
-&trans  &kp DELETE   &kp HOME     &kp PAGE_DOWN      &kp PG_UP      &kp END                    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp BSPC  &trans
-&trans  &trans       &trans       &trans             &trans         &trans                     &trans    &trans     &trans     &trans     &trans    &trans
+        &kp LA(TAB)  &kp LS(TAB)  &kp LC(PAGE_DOWN)  &kp LC(PG_UP)  &kp TAB                     &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans
+&trans  &kp DELETE   &kp HOME     &kp PAGE_DOWN      &kp PG_UP      &kp END                     &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp BSPC  &trans
+&trans  &trans       &trans       &trans             &trans         &trans                      &trans    &trans     &trans     &trans     &trans    &trans
                      &trans       &trans             &trans         &trans   &trans    &kp F14  &trans    &trans     &trans     &trans
             >;
         };
@@ -205,17 +182,17 @@
               &kp DE_MINUS      &kp DE_ASTERISK      &kp DE_EQUAL       &kp DE_UNDERSCORE        &kp DE_PLUS                     &kp DE_AMPERSAND  &kp DE_SQT                &kp DE_DQT          &kp DE_QMARK          &kp DE_EXCL
 &kp DE_COLON  &kp DE_LESS_THAN  &kp DE_LEFT_BRACKET  &kp DE_LEFT_BRACE  &kp DE_LEFT_PARENTHESIS  &kp DE_SLASH                    &kp DE_BACKSLASH  &kp DE_RIGHT_PARENTHESIS  &kp DE_RIGHT_BRACE  &kp DE_RIGHT_BRACKET  &kp DE_GT     &kp DE_SEMICOLON
 &kp DE_CARET  &kp DE_DOLLAR     &kp DE_PERCENT       &kp DE_AT          &kp DE_HASH              &kp DE_PIPE                     &kp DE_COLON      &kp LEFT_SHIFT            &kp LCTRL           &kp LEFT_ALT          &kp LEFT_GUI  &kp DE_TILDE
-                                &trans               &trans             &trans                   &trans        &trans    &trans  &kp F16            &trans                    &trans              &trans
+                                &trans               &trans             &trans                   &kp F16       &trans    &trans  &trans            &trans                    &trans              &trans
             >;
         };
 
         NUM {
             display-name = "NUM";
             bindings = <
-        &kp F2  &kp F3  &kp F4  &kp F5  &kp F6                    &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
-&kp F1  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                    &kp N6  &kp N7  &kp N8  &kp N9   &kp N0   &kp F12
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans   &trans   &trans
-                &trans  &trans  &trans  &trans  &kp F15    &trans  &trans  &trans  &trans  &trans
+        &kp F2  &kp F3  &kp F4  &kp F5  &kp F6                     &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&kp F1  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                     &kp N6  &kp N7  &kp N8  &kp N9   &kp N0   &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans                     &trans  &trans  &trans  &trans   &trans   &trans
+                &trans  &trans  &trans  &trans  &trans    &kp F15  &trans  &trans  &trans  &trans
             >;
         };
     };
