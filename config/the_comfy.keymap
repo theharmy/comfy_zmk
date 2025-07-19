@@ -3,9 +3,9 @@
  * Add this to your keymap file (usually .keymap)
  */
 
+#include "keys_de.h"
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
 
 / {
     // Define macros for F-key triggers
@@ -130,10 +130,10 @@
         qwe_layer {
             label = "QWE";
             bindings = <
-                &kp Q       &kp W       &kp E       &kp R       &kp T           &kp DE_Z       &kp U       &kp I       &kp O       &kp DE_SQT
-                &kp TAB     &kp A       &kp S       &kp D       &kp F           &kp G       &kp H       &kp J       &kp K       &kp L       &kp P       &kp BSPC
-                &kp LCTRL   &hm_l LGUI DE_Y &hm_l LALT X &hm_l LCTRL C &hm_l LSHFT V &kp B       &kp N       &hm_r RSHFT M &hm_r RCTRL DE_COMMA &hm_r RALT DE_DOT &hm_r RGUI DE_MINUS &kp DEL
-                &kp PG_DN   &kp PG_UP   &hm_l LALT ESC &hm_l LSHFT SPACE &tab_num TAB TAB    &ent_nav ENTER ENTER &bspc_sym BSPC BSPC &kp DE_COLON &kp DOWN &kp UP
+                                &kp Q       &kp W       &kp E       &kp R       &kp T               &kp DE_Z       &kp U       &kp I       &kp O       &kp DE_SQT
+                &kp TAB     &kp A       &kp S       &kp D       &kp F           &kp G               &kp H       &kp J       &kp K       &kp L       &kp P       &kp BSPC
+                &kp LCTRL   &hm_l LGUI DE_Y &hm_l LALT X &hm_l LCTRL C &hm_l LSHFT V                &kp B       &kp N       &hm_r RSHFT M &hm_r RCTRL DE_COMMA &hm_r RALT DE_DOT &hm_r RGUI DE_MINUS &kp DEL
+                &kp PG_DN   &kp PG_UP   &hm_l LALT ESC &hm_l LSHFT SPACE &tab_num TAB TAB           &ent_nav ENTER ENTER &bspc_sym BSPC BSPC &kp DE_COLON &kp DOWN &kp UP
             >;
         };
 
