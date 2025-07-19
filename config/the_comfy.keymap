@@ -1,167 +1,171 @@
-/*
- * ZMK Configuration for OverKeys Integration
- * Add this to your keymap file (usually .keymap)
- */
+// This file was generated from a template. Edit it to match your keyboard. test test
+// See https://zmk.dev/docs/development/hardware-integration/new-shield for more instructions.
 
 #include "keys_de.h"
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+&mt {
+    flavor = "tap-preferred";
+    bindings = <&kp>, <&kp>;
+
+    tapping-term-ms = <250>;
+    quick-tap-ms = <150>;
+    require-prior-idle-ms = <125>;
+};
+
+&lt {
+    quick-tap-ms = <200>;
+    tapping-term-ms = <250>;
+};
+
 / {
-    // Define macros for F-key triggers
-    macros {
-        // F14 macro for NAV layer
-        nav_trigger: nav_trigger {
-            label = "NAV_TRIGGER";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp F14>;
+    // Define a default keymap here.
+    // See https://zmk.dev/docs/development/hardware-integration/new-shield#default-keymap.
+
+    combos {
+        compatible = "zmk,combos";
+
+        ae {
+            bindings = <&kp DE_A_UMLAUT>;
+            key-positions = <11 2>;
         };
-        
-        // F15 macro for SYM layer  
-        sym_trigger: sym_trigger {
-            label = "SYM_TRIGGER";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp F15>;
+
+        ue {
+            bindings = <&kp DE_U_UMLAUT>;
+            key-positions = <6 2>;
         };
-        
-        // F16 macro for NUM layer
-        num_trigger: num_trigger {
-            label = "NUM_TRIGGER"; 
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp F16>;
+
+        oe {
+            bindings = <&kp DE_O_UMLAUT>;
+            key-positions = <8 2>;
         };
-        
-        // F13 macro for Colemak layer toggle
-        colemak_trigger: colemak_trigger {
-            label = "COLEMAK_TRIGGER";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp F13>;
+
+        esc {
+            bindings = <&kp ESCAPE>;
+            key-positions = <22 33>;
+        };
+
+        boot {
+            bindings = <&bootloader>;
+            key-positions = <4 5 38 39>;
+            require-prior-idle-ms = <500>;
+        };
+
+        colon {
+            bindings = <&kp DE_COLON>;
+            key-positions = <4 3>;
         };
     };
 
-    // Define hold-tap behaviors for layer switching + OverKeys triggers
+    
+
+
     behaviors {
-        // Enter key: tap=Enter, hold=NAV layer + F14
-        ent_nav: enter_nav {
+
+        // Layer-tap for Enter: tap=Enter, hold=NAV layer + send F14
+        lt_nav: layer_tap_nav {
             compatible = "zmk,behavior-hold-tap";
-            label = "ENTER_NAV";
+            label = "LAYER_TAP_NAV";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            bindings = <&nav_hold>, <&kp>;
-        };
-        
-        // Backspace key: tap=Backspace, hold=SYM layer + F15
-        bspc_sym: backspace_sym {
-            compatible = "zmk,behavior-hold-tap";
-            label = "BACKSPACE_SYM";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            bindings = <&sym_hold>, <&kp>;
-        };
-        
-        // Tab key: tap=Tab, hold=NUM layer + F16
-        tab_num: tab_num {
-            compatible = "zmk,behavior-hold-tap";
-            label = "TAB_NUM";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            bindings = <&num_hold>, <&kp>;
+            quick-tap-ms = <125>;
+            bindings = <&mo>, <&kp>;
         };
 
-        // Custom behaviors that activate layer AND send F-key
-        nav_hold: nav_hold {
-            compatible = "zmk,behavior-macro";
-            label = "NAV_HOLD";
-            #binding-cells = <0>;
-            bindings = <&mo 2>, <&nav_trigger>;  // Activate layer 2 + send F14
-        };
-        
-        sym_hold: sym_hold {
-            compatible = "zmk,behavior-macro";
-            label = "SYM_HOLD";
-            #binding-cells = <0>;
-            bindings = <&mo 3>, <&sym_trigger>;  // Activate layer 3 + send F15
-        };
-        
-        num_hold: num_hold {
-            compatible = "zmk,behavior-macro";
-            label = "NUM_HOLD";
-            #binding-cells = <0>;
-            bindings = <&mo 4>, <&num_trigger>;  // Activate layer 4 + send F16
+        // Layer-tap for Backspace: tap=Backspace, hold=SYM layer + send F15  
+        lt_sym: layer_tap_sym {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_SYM";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            bindings = <&mo>, <&kp>;
         };
 
-        // Home row mods with standard mod-tap
-        hm_l: homerow_mods_left {
+        // Layer-tap for Tab: tap=Tab, hold=NUM layer + send F16
+        lt_num: layer_tap_num {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_L";
+            label = "LAYER_TAP_NUM";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
+            quick-tap-ms = <125>;
+            bindings = <&mo>, <&kp>;
         };
-        
-        hm_r: homerow_mods_right {
+
+
+        hml: hml {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_R";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
+            label = "HML";
             bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31 35 36 37>;
+        };
+
+        hmr: hmr {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMR";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 21 22 23 24 25 32 33 34 20>;
+            hold-trigger-on-release;
+        };
+
+        back_del: back_del {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BACK_DEL";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DEL>;
         };
     };
 
-    // Define your layers
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: Base QWE layer
-        qwe_layer {
-            label = "QWE";
+        QWE {
+            display-name = "QWE";
             bindings = <
-                                &kp Q       &kp W       &kp E       &kp R       &kp T               &kp DE_Z       &kp U       &kp I       &kp O       &kp DE_SQT
-                &kp TAB     &kp A       &kp S       &kp D       &kp F           &kp G               &kp H       &kp J       &kp K       &kp L       &kp P       &kp BSPC
-                &kp LCTRL   &hm_l LGUI DE_Y &hm_l LALT X &hm_l LCTRL C &hm_l LSHFT V                &kp B       &kp N       &hm_r RSHFT M &hm_r RCTRL DE_COMMA &hm_r RALT DE_DOT &hm_r RGUI DE_MINUS &kp DEL
-                &kp PG_DN   &kp PG_UP   &hm_l LALT ESC &hm_l LSHFT SPACE &tab_num TAB TAB           &ent_nav ENTER ENTER &bspc_sym BSPC BSPC &kp DE_COLON &kp DOWN &kp UP
+           &kp DE_Q        &kp W        &kp E         &kp R          &kp T                                      &kp DE_Z         &kp U          &kp I                &kp O             &kp DE_DQT
+&kp TAB    &kp A           &kp S        &kp D         &kp F          &kp G                                      &kp H            &kp DE_J       &kp DE_K             &kp DE_L          &kp DE_P            &kp BACKSPACE
+&kp LCTRL  &hml LGUI DE_Y  &hml LALT X  &hml LCTRL C  &hml LSHIFT V  &kp B                                      &kp N            &hmr LSHIFT M  &hmr LCTRL DE_COMMA  &hmr LALT DE_DOT  &hmr LGUI DE_MINUS  &kp DEL
+                           &kp PG_DN    &kp PG_UP     &mt LALT ESC   &mt LSHFT SPACE  &lt_num 2 TAB    &lt_nav 1 ENTER  &lt_sym 3 BSPC  &kp DE_COLON   &kp DOWN             &kp UP
             >;
         };
 
-        // Layer 1: Colemak layer (4)
-        colemak_layer {
-            label = "4";
+        layer_4 {
             bindings = <
-                &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp DE_Y       &trans
-                &trans      &kp A       &kp R       &kp S       &kp T           &kp G       &kp M       &kp N       &kp E       &kp I       &kp O       &trans
-                &trans      &hm_l LGUI DE_Z &hm_l LALT X &hm_l LCTRL C &hm_l LSHFT D &kp V       &kp K       &hm_r RSHFT H &hm_r RCTRL DOT &hm_r RALT COMMA &hm_r RGUI MINUS &trans
-                &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
+        &kp Q            &kp W            &kp F         &kp P              &kp B                     &kp J   &kp L              &kp U              &kp Y                   &trans
+&trans  &kp A            &kp R            &kp S         &kp T              &kp G                     &kp M   &kp N              &kp E              &kp I                   &kp O                   &trans
+&trans  &hml LEFT_GUI Z  &hml LEFT_ALT X  &hml LCTRL C  &hml LEFT_SHIFT D  &kp V                     &kp K   &hmr LEFT_SHIFT H  &hmr LCTRL DE_DOT  &hmr LEFT_ALT DE_COMMA  &hmr LEFT_GUI DE_MINUS  &trans
+                         &trans           &trans        &trans             &trans  &trans    &trans  &trans  &trans             &trans             &trans
             >;
         };
 
-        // Layer 2: Navigation layer
-        nav_layer {
-            label = "NAV";
+        NAV {
             bindings = <
-                &kp LA(TAB) &kp LS(TAB) &kp LC(PG_DN) &kp LC(PG_UP) &kp TAB     &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &trans
-                &trans      &kp DEL     &kp HOME    &kp PG_DN   &kp PG_UP       &kp END     &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp BSPC    &trans
-                &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans      &trans      &trans
-                &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
+        &kp LA(TAB)  &kp LS(TAB)  &kp LC(PAGE_DOWN)  &kp LC(PG_UP)  &kp TAB                    &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans
+&trans  &kp DELETE   &kp HOME     &kp PAGE_DOWN      &kp PG_UP      &kp END                    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp BSPC  &trans
+&trans  &trans       &trans       &trans             &trans         &trans                     &trans    &trans     &trans     &trans     &trans    &trans
+                     &trans       &trans             &trans         &trans   &trans    &trans  &trans    &trans     &trans     &trans
             >;
         };
 
-        // Layer 3: Symbol layer
-        sym_layer {
-            label = "SYM";
+        SYM {
+            display-name = "SYM";
             bindings = <
               &kp DE_MINUS      &kp DE_ASTERISK      &kp DE_EQUAL       &kp DE_UNDERSCORE        &kp DE_PLUS                     &kp DE_AMPERSAND  &kp DE_SQT                &kp DE_DQT          &kp DE_QMARK          &kp DE_EXCL
 &kp DE_COLON  &kp DE_LESS_THAN  &kp DE_LEFT_BRACKET  &kp DE_LEFT_BRACE  &kp DE_LEFT_PARENTHESIS  &kp DE_SLASH                    &kp DE_BACKSLASH  &kp DE_RIGHT_PARENTHESIS  &kp DE_RIGHT_BRACE  &kp DE_RIGHT_BRACKET  &kp DE_GT     &kp DE_SEMICOLON
@@ -170,14 +174,12 @@
             >;
         };
 
-        // Layer 4: Number/Function layer
-        num_layer {
-            label = "NUM";
+        NUM {
             bindings = <
-                &kp F2      &kp F3      &kp F4      &kp F5      &kp F6          &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
-                &kp F1      &kp N1      &kp N2      &kp N3      &kp N4          &kp N5      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp F12
-                &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans      &trans      &trans
-                &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
+        &kp F2  &kp F3  &kp F4  &kp F5  &kp F6                    &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&kp F1  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                    &kp N6  &kp N7  &kp N8  &kp N9   &kp N0   &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans   &trans   &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
