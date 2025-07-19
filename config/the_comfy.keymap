@@ -55,14 +55,21 @@
 
         Col_overkeys {
             bindings = <&kp F13>;
-            key-positions = <34 43>;
+            key-positions = <22 33>;
             layers = <1>;
         };
 
-        To_Col {
+        Tog_Col {
             bindings = <&to 1>;
             key-positions = <0 9>;
             layers = <0>;
+        };
+
+
+        Tog_QWE {
+            bindings = <&to 0>;
+            key-positions = <0 9>;
+            layers = <1>;
         };
 
         Nav_Overkeys {
