@@ -62,6 +62,12 @@
             key-positions = <34 43>;
             layers = <1>;
         };
+
+        To_Col {
+            bindings = <&to 1>;
+            key-positions = <0 9>;
+            layers = <0>;
+        };
     };
 
     
@@ -148,11 +154,12 @@
            &kp DE_Q        &kp W        &kp E         &kp R          &kp T                                      &kp DE_Z         &kp U          &kp I                &kp O             &kp DE_DQT
 &kp TAB    &kp A           &kp S        &kp D         &kp F          &kp G                                      &kp H            &kp DE_J       &kp DE_K             &kp DE_L          &kp DE_P            &kp BACKSPACE
 &kp LCTRL  &hml LGUI DE_Y  &hml LALT X  &hml LCTRL C  &hml LSHIFT V  &kp B                                      &kp N            &hmr LSHIFT M  &hmr LCTRL DE_COMMA  &hmr LALT DE_DOT  &hmr LGUI DE_MINUS  &kp DEL
-                           &kp PG_DN    &kp PG_UP     &mt LALT ESC   &mt LSHFT SPACE  &lt_num 2 TAB    &lt_nav 1 ENTER  &lt_sym 3 BSPC  &kp DE_COLON   &kp DOWN             &kp UP
+                           &kp PG_DN    &kp PG_UP     &mt LALT ESC   &mt LSHFT SPACE  &lt_num 4 TAB    &lt_nav 2 ENTER  &lt_sym 3 BSPC  &kp DE_COLON   &kp DOWN             &kp UP
             >;
         };
 
         COL {
+            display-name = "COL";
             bindings = <
         &kp Q            &kp W            &kp F         &kp P              &kp B                     &kp J   &kp L              &kp U              &kp Y                   &trans
 &trans  &kp A            &kp R            &kp S         &kp T              &kp G                     &kp M   &kp N              &kp E              &kp I                   &kp O                   &trans
@@ -162,6 +169,7 @@
         };
 
         NAV {
+            display-name = "NAV";
             bindings = <
         &kp LA(TAB)  &kp LS(TAB)  &kp LC(PAGE_DOWN)  &kp LC(PG_UP)  &kp TAB                    &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans
 &trans  &kp DELETE   &kp HOME     &kp PAGE_DOWN      &kp PG_UP      &kp END                    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp BSPC  &trans
