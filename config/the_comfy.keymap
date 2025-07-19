@@ -48,7 +48,7 @@
 
         boot {
             bindings = <&bootloader>;
-            key-positions = <4 5 38 39>;
+            key-positions = <22 33 38 39>;
             require-prior-idle-ms = <500>;
         };
 
@@ -146,7 +146,7 @@
             >;
         };
 
-        layer_4 {
+        COL {
             bindings = <
         &kp Q            &kp W            &kp F         &kp P              &kp B                     &kp J   &kp L              &kp U              &kp Y                   &trans
 &trans  &kp A            &kp R            &kp S         &kp T              &kp G                     &kp M   &kp N              &kp E              &kp I                   &kp O                   &trans
@@ -160,7 +160,7 @@
         &kp LA(TAB)  &kp LS(TAB)  &kp LC(PAGE_DOWN)  &kp LC(PG_UP)  &kp TAB                    &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans
 &trans  &kp DELETE   &kp HOME     &kp PAGE_DOWN      &kp PG_UP      &kp END                    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp BSPC  &trans
 &trans  &trans       &trans       &trans             &trans         &trans                     &trans    &trans     &trans     &trans     &trans    &trans
-                     &trans       &trans             &trans         &trans   &trans    &trans  &trans    &trans     &trans     &trans
+                     &trans       &trans             &trans         &trans   &trans    &kp F14  &trans    &trans     &trans     &trans
             >;
         };
 
@@ -170,7 +170,7 @@
               &kp DE_MINUS      &kp DE_ASTERISK      &kp DE_EQUAL       &kp DE_UNDERSCORE        &kp DE_PLUS                     &kp DE_AMPERSAND  &kp DE_SQT                &kp DE_DQT          &kp DE_QMARK          &kp DE_EXCL
 &kp DE_COLON  &kp DE_LESS_THAN  &kp DE_LEFT_BRACKET  &kp DE_LEFT_BRACE  &kp DE_LEFT_PARENTHESIS  &kp DE_SLASH                    &kp DE_BACKSLASH  &kp DE_RIGHT_PARENTHESIS  &kp DE_RIGHT_BRACE  &kp DE_RIGHT_BRACKET  &kp DE_GT     &kp DE_SEMICOLON
 &kp DE_CARET  &kp DE_DOLLAR     &kp DE_PERCENT       &kp DE_AT          &kp DE_HASH              &kp DE_PIPE                     &kp DE_COLON      &kp LEFT_SHIFT            &kp LCTRL           &kp LEFT_ALT          &kp LEFT_GUI  &kp DE_TILDE
-                                &trans               &trans             &trans                   &trans        &trans    &trans  &trans            &trans                    &trans              &trans
+                                &trans               &trans             &trans                   &trans        &trans    &trans  &kp F16            &trans                    &trans              &trans
             >;
         };
 
@@ -179,7 +179,7 @@
         &kp F2  &kp F3  &kp F4  &kp F5  &kp F6                    &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
 &kp F1  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                    &kp N6  &kp N7  &kp N8  &kp N9   &kp N0   &kp F12
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans   &trans   &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &kp F15  &trans  &trans  &trans
             >;
         };
     };
