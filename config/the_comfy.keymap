@@ -56,6 +56,12 @@
             bindings = <&kp DE_COLON>;
             key-positions = <4 3>;
         };
+
+        Col_overkeys {
+            bindings = <&kp F13>;
+            key-positions = <34 43>;
+            layers = <1>;
+        };
     };
 
     
