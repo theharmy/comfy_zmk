@@ -70,41 +70,22 @@
         };
     };
 
+    macros {
+        layer3_f14: layer3_f16 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mo 3 &kp F16>;
+        };
+    };
+
     behaviors {
-        // Layer-tap for Enter: tap=Enter, hold=NAV layer + send F14
 
-        lt_nav: layer_tap_nav {
+        bspc_macro: bspc_macro {
             compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_NAV";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
-            bindings = <&mo>, <&kp>;
-        };
-
-        // Layer-tap for Backspace: tap=Backspace, hold=SYM layer + send F15  
-
-        lt_sym: layer_tap_sym {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_SYM";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
-            bindings = <&mo>, <&kp>;
-        };
-
-        // Layer-tap for Tab: tap=Tab, hold=NUM layer + send F16
-
-        lt_num: layer_tap_num {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_NUM";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
-            bindings = <&mo>, <&kp>;
+            bindings = <&layer3_f16>, <&kp>;
         };
 
         hml: hml {
@@ -152,7 +133,7 @@
            &kp Q        &kp W        &kp E         &kp R          &kp T                                              &kp Z           &kp U          &kp I             &kp O          &kp DQT
 &kp TAB    &kp A        &kp S        &kp D         &kp F          &kp G                                              &kp H           &kp J          &kp K             &kp L          &kp P            &kp BACKSPACE
 &kp LCTRL  &hml LGUI Y  &hml LALT X  &hml LCTRL C  &hml LSHIFT V  &kp B                                              &kp N           &hmr LSHIFT M  &hmr LCTRL COMMA  &hmr LALT DOT  &hmr LGUI MINUS  &kp DEL
-                        &kp PG_DN    &kp PG_UP     &mt LALT ESC   &mt LSHFT SPACE  &lt_num 4 TAB    &lt_nav 2 ENTER  &lt_sym 3 BSPC  &kp COLON      &kp DOWN          &kp UP
+                        &kp PG_DN    &kp PG_UP     &mt LALT ESC   &mt LSHFT SPACE  &lt_num 4 TAB    &lt_nav 2 ENTER  &bspc_macro 0 BSPC  &kp COLON      &kp DOWN          &kp UP
             >;
         };
 
