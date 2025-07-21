@@ -74,14 +74,13 @@
         layer3_f16: layer3_f16 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo 3 &kp F16>,
-                <&macro_pause_for_release>,
-                <&macro_press>,
-                <&kp F16>,
-                <&macro_release>,
-                <&mo 3 &kp F16>;
+            bindings 
+                = <&macro_press &mo 3>
+                , <&macro_tap &kp F16>
+                , <&macro_pause_for_release>
+                , <&macro_tap &kp F16
+                , <&macro_release &mo 3>
+            ;
         };
     };
 
