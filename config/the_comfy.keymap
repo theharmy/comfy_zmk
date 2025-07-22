@@ -120,13 +120,6 @@
     };
 
     behaviors {
-        bspc_macro: bspc_macro {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&layer3_f16>, <&kp>;
-        };
 
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
