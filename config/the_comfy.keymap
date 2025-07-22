@@ -74,30 +74,52 @@
         SeeSymMacro: SeeSymMacro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings 
-                = <&macro_press &mo 3>
-                , <&macro_tap &kp F16>
-                , <&macro_pause_for_release>
-                , <&macro_tap &kp F16>
-                , <&macro_release &mo 3>
-            ;
+            bindings =
+                <&macro_press>,
+                <&mo 3>,
+                <&macro_tap>,
+                <&kp F16>,
+                <&macro_pause_for_release>,
+                <&macro_tap>,
+                <&kp F16>,
+                <&macro_release>,
+                <&mo 3>;
         };
 
         SeeNavMacro: SeeNavMacro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings 
-                = <&macro_press &mo 3>
-                , <&macro_tap &kp F16>
-                , <&macro_pause_for_release>
-                , <&macro_tap &kp F16>
-                , <&macro_release &mo 3>
-            ;
+            bindings =
+                <&macro_press>,
+                <&mo 2>,
+                <&macro_tap>,
+                <&kp F14>,
+                <&macro_pause_for_release>,
+                <&macro_tap>,
+                <&kp F14>,
+                <&macro_release>,
+                <&mo 2>;
+        };
+
+        SeeNumMacro: SeeNumMacro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&mo 4>,
+                <&macro_tap>,
+                <&kp F15>,
+                <&macro_pause_for_release>,
+                <&macro_tap>,
+                <&kp F15>,
+                <&macro_release>,
+                <&mo 4>;
+
+            label = "SEENUMMACRO";
         };
     };
 
     behaviors {
-
         bspc_macro: bspc_macro {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -141,10 +163,35 @@
             bindings = <&kp BACKSPACE>, <&kp DEL>;
         };
 
-        l3_f16: l3_f16 {
+        SymBehav: SymBehav {
             compatible = "zmk,behavior-hold-tap";
-            label = "L3_F16";
+            label = "SYMBEHAV";
             bindings = <&SeeSymMacro>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        to_col: to_col {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TO_COL";
+            #binding-cells = <0>;
+            bindings = <&kp TAB>, <&kp TAB>, <&to 1>;
+        };
+
+        NavBehav: NavBehav {
+            compatible = "zmk,behavior-hold-tap";
+            label = "NAVBEHAV";
+            bindings = <&SeeNavMacro>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        NumBehav: NumBehav {
+            compatible = "zmk,behavior-hold-tap";
+            label = "NUMBEHAV";
+            bindings = <&SeeNumMacro>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -157,10 +204,10 @@
         QWE {
             display-name = "QWE";
             bindings = <
-           &kp Q        &kp W        &kp E         &kp R          &kp T                                              &kp Z           &kp U          &kp I             &kp O          &kp DQT
-&kp TAB    &kp A        &kp S        &kp D         &kp F          &kp G                                              &kp H           &kp J          &kp K             &kp L          &kp P            &kp BACKSPACE
-&kp LCTRL  &hml LGUI Y  &hml LALT X  &hml LCTRL C  &hml LSHIFT V  &kp B                                              &kp N           &hmr LSHIFT M  &hmr LCTRL COMMA  &hmr LALT DOT  &hmr LGUI MINUS  &kp DEL
-                        &kp PG_DN    &kp PG_UP     &mt LALT ESC   &mt LSHFT SPACE  &lt 4 TAB    &lt 2 ENTER  &l3_f16 0 BSPC  &kp COLON      &kp DOWN          &kp UP
+           &kp Q        &kp W        &kp E         &kp R          &kp T                                                  &kp Z             &kp U          &kp I             &kp O          &kp DQT
+&to_col    &kp A        &kp S        &kp D         &kp F          &kp G                                                  &kp H             &kp J          &kp K             &kp L          &kp P            &kp BACKSPACE
+&kp LCTRL  &hml LGUI Y  &hml LALT X  &hml LCTRL C  &hml LSHIFT V  &kp B                                                  &kp N             &hmr LSHIFT M  &hmr LCTRL COMMA  &hmr LALT DOT  &hmr LGUI MINUS  &kp DEL
+                        &kp PG_DN    &kp PG_UP     &mt LALT ESC   &mt LSHFT SPACE  &NumBehav 0 TAB    &NavBehav 0 ENTER  &SymBehav 0 BSPC  &kp COLON      &kp DOWN          &kp UP
             >;
         };
 
@@ -177,10 +224,10 @@
         NAV {
             display-name = "NAV";
             bindings = <
-        &kp LA(TAB)  &kp LS(TAB)  &kp LC(PAGE_DOWN)  &kp LC(PG_UP)  &kp TAB                     &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans
-&trans  &kp DELETE   &kp HOME     &kp PAGE_DOWN      &kp PG_UP      &kp END                     &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp BSPC  &trans
-&trans  &trans       &trans       &trans             &trans         &trans                      &trans    &trans     &trans     &trans     &trans    &trans
-                     &trans       &trans             &trans         &trans   &kp F14    &trans  &trans    &trans     &trans     &trans
+        &kp LA(TAB)  &kp LS(TAB)  &kp LC(PAGE_DOWN)  &kp LC(PG_UP)  &kp TAB                    &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans
+&trans  &kp DELETE   &kp HOME     &kp PAGE_DOWN      &kp PG_UP      &kp END                    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp BSPC  &trans
+&trans  &trans       &trans       &trans             &trans         &trans                     &trans    &trans     &trans     &trans     &trans    &trans
+                     &trans       &trans             &trans         &trans   &trans    &trans  &trans    &trans     &trans     &trans
             >;
         };
 
@@ -190,7 +237,7 @@
            &kp MINUS      &kp ASTERISK      &kp EQUAL       &kp UNDERSCORE        &kp PLUS                     &kp AMPERSAND  &kp SQT                &kp DQT          &kp QMARK          &kp EXCL
 &kp COLON  &kp LESS_THAN  &kp LEFT_BRACKET  &kp LEFT_BRACE  &kp LEFT_PARENTHESIS  &kp SLASH                    &kp BACKSLASH  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp GT        &kp SEMICOLON
 &kp CARET  &kp DOLLAR     &kp PERCENT       &kp AT          &kp HASH              &kp PIPE                     &kp COLON      &kp LEFT_SHIFT         &kp LCTRL        &kp LEFT_ALT       &kp LEFT_GUI  &kp TILDE
-                          &trans            &trans          &trans                &kp F16    &trans    &trans  &trans         &trans                 &trans           &trans
+                          &trans            &trans          &trans                &trans     &trans    &trans  &trans         &trans                 &trans           &trans
             >;
         };
 
@@ -200,7 +247,7 @@
              &kp F2   &kp F3   &kp F4   &kp F5   &kp F6                      &kp F7   &kp F8   &kp F9   &kp F10  &kp F11
 &kp F1       &kp N1   &kp N2   &kp N3   &kp N4   &kp N5                      &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &kp F12
 &bootloader  &kp F13  &kp F14  &kp F15  &kp F16  &kp F17                     &kp F18  &kp F19  &kp F20  &kp F21  &kp F22  &kp KP_NUMLOCK
-                      &trans   &trans   &trans   &trans   &trans    &kp F15  &trans   &trans   &trans   &trans
+                      &trans   &trans   &trans   &trans   &trans    &kp F14  &kp F16  &kp F13  &kp F18  &trans
             >;
         };
     };
