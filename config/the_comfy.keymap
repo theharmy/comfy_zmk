@@ -197,9 +197,9 @@
         QWE {
             display-name = "QWE";
             bindings = <
-           &kp Q        &kp W        &kp E         &kp R          &kp T                                                  &kp Z             &kp U          &kp I             &kp O          &kp DQT
+           &kp DE_Q        &kp W        &kp E         &kp R          &kp T                                                  &kp DE_Z             &kp U          &kp I             &kp O          &kp DE_DQT
 &to_col    &kp A        &kp S        &kp D         &kp F          &kp G                                                  &kp H             &kp J          &kp K             &kp L          &kp P            &kp BACKSPACE
-&kp LCTRL  &hml LGUI Y  &hml LALT X  &hml LCTRL C  &hml LSHIFT V  &kp B                                                  &kp N             &hmr LSHIFT M  &hmr LCTRL COMMA  &hmr LALT DOT  &hmr LGUI MINUS  &kp DEL
+&kp LCTRL  &hml LGUI DE_Y  &hml LALT X  &hml LCTRL C  &hml LSHIFT V  &kp B                                                  &kp N             &hmr LSHIFT M  &hmr LCTRL DE_COMMA  &hmr LALT DE_DOT  &hmr LGUI DE_MINUS  &kp DEL
                         &kp PG_DN    &kp PG_UP     &mt LALT ESC   &mt LSHFT SPACE  &NumBehav 0 TAB    &NavBehav 0 ENTER  &SymBehav 0 BSPC  &kp COLON      &kp DOWN          &kp UP
             >;
         };
@@ -207,9 +207,9 @@
         COL {
             display-name = "COL";
             bindings = <
-        &kp Q            &kp W            &kp F         &kp P              &kp B                     &kp J   &kp L              &kp U           &kp Y                &trans
+        &kp DE_Q            &kp W            &kp F         &kp P              &kp B                     &kp J   &kp L              &kp U           &kp Y                &trans
 &trans  &kp A            &kp R            &kp S         &kp T              &kp G                     &kp M   &kp N              &kp E           &kp I                &kp O                &trans
-&trans  &hml LEFT_GUI Z  &hml LEFT_ALT X  &hml LCTRL C  &hml LEFT_SHIFT D  &kp V                     &kp K   &hmr LEFT_SHIFT H  &hmr LCTRL DOT  &hmr LEFT_ALT COMMA  &hmr LEFT_GUI MINUS  &trans
+&trans  &hml LEFT_GUI Z  &hml LEFT_ALT X  &hml LCTRL C  &hml LEFT_SHIFT D  &kp V                     &kp K   &hmr LEFT_SHIFT H  &hmr LCTRL DE_DOT  &hmr LEFT_ALT DE_COMMA  &hmr LEFT_GUI DE_MINUS  &trans
                          &trans           &trans        &trans             &trans  &trans    &trans  &trans  &trans             &trans          &trans
             >;
         };
@@ -227,9 +227,9 @@
         SYM {
             display-name = "SYM";
             bindings = <
-           &kp MINUS      &kp ASTERISK      &kp EQUAL       &kp UNDERSCORE        &kp PLUS                     &kp AMPERSAND  &kp SQT                &kp DQT          &kp QMARK          &kp EXCL
-&kp COLON  &kp LESS_THAN  &kp LEFT_BRACKET  &kp LEFT_BRACE  &kp LEFT_PARENTHESIS  &kp SLASH                    &kp BACKSLASH  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp GT        &kp SEMICOLON
-&kp CARET  &kp DOLLAR     &kp PERCENT       &kp AT          &kp HASH              &kp PIPE                     &kp COLON      &kp LEFT_SHIFT         &kp LCTRL        &kp LEFT_ALT       &kp LEFT_GUI  &kp TILDE
+        &kp DE_MINUS      &kp DE_ASTERISK      &kp DE_EQUAL       &kp DE_UNDERSCORE        &kp DE_PLUS                     &kp DE_AMPERSAND  &kp DE_SQT                &kp DE_DQT          &kp DE_QMARK          &kp DE_EXCL
+&kp DE_COLON  &kp DE_LESS_THAN  &kp DE_LEFT_BRACKET  &kp DE_LEFT_BRACE  &kp DE_LEFT_PARENTHESIS  &kp DE_SLASH                    &kp DE_BACKSLASH  &kp DE_RIGHT_PARENTHESIS  &kp DE_RIGHT_BRACE  &kp DE_RIGHT_BRACKET  &kp DE_GT     &kp DE_SEMICOLON
+&kp DE_CARET  &kp DE_DOLLAR     &kp DE_PERCENT       &kp DE_AT          &kp DE_HASH              &kp DE_PIPE                     &kp DE_COLON      &kp LEFT_SHIFT            &kp LCTRL           &kp LEFT_ALT          &kp LEFT_GUI  &kp DE_TILDE    
                           &trans            &trans          &trans                &trans     &trans    &trans  &trans         &trans                 &trans           &trans
             >;
         };
