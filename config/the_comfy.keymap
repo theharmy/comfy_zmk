@@ -68,6 +68,11 @@
             key-positions = <0 9>;
             layers = <1>;
         };
+
+        screenshot {
+            bindings = <&kp PRINTSCREEN>;
+            key-positions = <27 26>;
+        };
     };
 
     macros {
@@ -76,14 +81,14 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&mo 3>,
+                <&mo 2>,
                 <&macro_tap>,
                 <&kp F16>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
                 <&kp F16>,
                 <&macro_release>,
-                <&mo 3>;
+                <&mo 2>;
         };
 
         SeeNavMacro: SeeNavMacro {
@@ -91,14 +96,14 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&mo 2>,
+                <&mo 0>,
                 <&macro_tap>,
                 <&kp F14>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
                 <&kp F14>,
                 <&macro_release>,
-                <&mo 2>;
+                <&mo 0>;
         };
 
         SeeNumMacro: SeeNumMacro {
@@ -106,14 +111,14 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&mo 4>,
+                <&mo 3>,
                 <&macro_tap>,
                 <&kp F15>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
                 <&kp F15>,
                 <&macro_release>,
-                <&mo 4>;
+                <&mo 3>;
 
             label = "SEENUMMACRO";
         };
@@ -206,7 +211,7 @@
           &kp DE_Q            &kp W               &kp E            &kp R                 &kp T                              &kp DE_Y         &kp U                  &kp I            &kp O                &kp DE_GRAVE
 &kp ESC   &hml LEFT_GUI DE_A  &hml LEFT_ALT DE_S  &hml LCTRL DE_D  &hml LEFT_SHIFT DE_F  &kp G                              &kp H            &hmr RIGHT_SHIFT DE_J  &hmr RCTRL DE_K  &hmr RIGHT_ALT DE_L  &hmr LEFT_GUI P  &kp ENTER
 &kp BSPC  &kp DE_Z            &kp DE_X            &kp DE_C         &kp DE_V              &kp B                              &kp N            &kp DE_M               &kp DE_COMMA     &kp DE_DOT           &kp DE_MINUS     &kp DEL
-                              &kp DOWN            &kp UP           &kp LEFT_GUI          &kp SPACE  &kp TAB    &lt 4 ENTER  &lt 3 BACKSPACE  &kp DE_COLON           &kp LEFT         &kp RIGHT
+                              &kp DOWN            &kp UP           &kp LEFT_GUI          &kp SPACE  &kp TAB    &lt 3 ENTER  &lt 2 BACKSPACE  &mo 4                  &kp LEFT         &kp RIGHT
             >;
         };
 
@@ -217,16 +222,6 @@
 &to_qwe  &kp A               &kp R            &kp S         &kp T              &kp G                     &kp M   &kp N              &kp E              &kp I                   &kp O                   &trans
 &trans   &hml LEFT_GUI DE_Z  &hml LEFT_ALT X  &hml LCTRL C  &hml LEFT_SHIFT D  &kp V                     &kp K   &hmr LEFT_SHIFT H  &hmr LCTRL DE_DOT  &hmr LEFT_ALT DE_COMMA  &hmr LEFT_GUI DE_MINUS  &trans
                              &trans           &trans        &trans             &trans  &trans    &trans  &trans  &trans             &trans             &trans
-            >;
-        };
-
-        NAV {
-            display-name = "NAV";
-            bindings = <
-        &kp LA(TAB)  &kp LS(TAB)  &kp LC(PAGE_DOWN)  &kp LC(PG_UP)  &kp TAB                    &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans
-&trans  &kp DELETE   &kp HOME     &kp PAGE_DOWN      &kp PG_UP      &kp END                    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp BSPC  &trans
-&trans  &trans       &trans       &trans             &trans         &trans                     &trans    &trans     &trans     &trans     &trans    &trans
-                     &trans       &trans             &trans         &trans   &trans    &trans  &trans    &trans     &trans     &trans
             >;
         };
 
@@ -243,10 +238,19 @@
         NUM {
             display-name = "NUM";
             bindings = <
-             &kp F2   &kp F3   &kp F4   &kp F5   &kp F6                      &kp F7   &kp F8   &kp F9   &kp F10  &kp F11
-&kp F1       &kp N1   &kp N2   &kp N3   &kp N4   &kp N5                      &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &kp F12
-&bootloader  &kp F13  &kp F14  &kp F15  &kp F16  &kp F17                     &kp F18  &kp F19  &kp F20  &kp F21  &kp F22  &kp KP_NUMLOCK
-                      &trans   &trans   &trans   &trans   &trans    &kp F14  &kp F16  &kp F13  &kp F18  &trans
+             &kp F2   &kp F3   &kp F4   &kp F5   &kp F6                     &kp F7   &kp F8   &kp F9   &kp F10  &kp F11
+&kp F1       &kp N1   &kp N2   &kp N3   &kp N4   &kp N5                     &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &kp F12
+&bootloader  &kp F13  &kp F14  &kp F15  &kp F16  &kp F17                    &kp F18  &kp F19  &kp F20  &kp F21  &kp F22  &kp KP_NUMLOCK
+                      &trans   &trans   &trans   &trans   &trans    &trans  &trans   &trans   &trans   &trans
+            >;
+        };
+
+        NAV {
+            bindings = <
+        &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                    &kp N6             &kp N7                  &kp N8                &kp N9            &kp N0
+&trans  &trans  &trans  &trans  &trans  &trans                    &kp LG(DE_ESZETT)  &kp LG(LS(DE_SHARP_S))  &kp LG(LS(DE_ACUTE))  &kp LG(DE_ACUTE)  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans             &trans                  &trans                &trans            &trans  &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &trans             &trans                  &trans                &trans
             >;
         };
     };
