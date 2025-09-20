@@ -247,7 +247,7 @@
 
         NAV {
             bindings = <
-        &mt F1 DE_N1  &kp N2  &kp N3  &kp N4  &kp N5                     &kp N6             &kp N7                  &kp N8                &kp N9            &kp N0
+        &mt F1 DE_N1  &mt F2 DE_N2  &mt F3 DE_N3    &mt F4 DE_N4    &mt F5 DE_N5            &mt F6 DE_N6    &mt F7 DE_N7    &mt F8 DE_N8    &mt F9 DE_N9    &mt F10 DE_N0                        
 &trans  &trans        &trans  &trans  &trans  &trans                     &kp LG(DE_ESZETT)  &kp LG(LS(DE_SHARP_S))  &kp LG(LS(DE_ACUTE))  &kp LG(DE_ACUTE)  &kp LEFT_GUI  &trans
 &trans  &trans        &trans  &trans  &trans  &kp F11                    &kp F12            &trans                  &trans                &trans            &trans        &trans
                       &trans  &trans  &trans  &trans   &trans    &trans  &trans             &trans                  &trans                &trans
