@@ -73,6 +73,20 @@
             bindings = <&kp PRINTSCREEN>;
             key-positions = <27 26>;
         };
+
+        to_col {
+            bindings = <&to 0>;
+            key-positions = <22 33>;
+            layers = <1>;
+            require-prior-idle-ms = <500>;
+        };
+
+        to_qwe {
+            bindings = <&to 1>;
+            key-positions = <22 33>;
+            layers = <0>;
+            require-prior-idle-ms = <500>;
+        };
     };
 
     macros {
@@ -211,7 +225,7 @@
               &kp DE_Q            &kp W               &kp F            &kp P                 &kp B                            &kp J       &kp L                 &kp U            &kp DE_Y             &kp TAB
 &lt 3 ESCAPE  &hml LEFT_GUI DE_A  &hml LEFT_ALT DE_R  &hml LCTRL DE_S  &hml LEFT_SHIFT DE_T  &kp G                            &kp M       &hmr LEFT_SHIFT DE_N  &hmr RCTRL DE_E  &hmr RIGHT_ALT DE_I  &hmr RIGHT_GUI DE_O  &lt 3 ENTER
 &lt 2 BSPC    &kp DE_Z            &kp DE_X            &kp DE_C         &kp DE_D              &kp V                            &kp K       &kp DE_H              &kp DE_COMMA     &kp DE_DOT           &kp DE_MINUS         &lt 1 DELETE
-                                  &kp DOWN            &kp UP           &kp ESCAPE            &kp SPACE  &kp TAB    &kp ENTER  &lt 1 BSPC  &mo 4                 &kp LEFT         &kp RIGHT
+                                  &kp LG(DE_N1)       &kp LG(DE_N2)    &kp ESCAPE            &kp SPACE  &kp TAB    &kp ENTER  &lt 1 BSPC  &mo 4                 &kp LG(DE_N3)    &kp LG(DE_N4)
             >;
         };
 
