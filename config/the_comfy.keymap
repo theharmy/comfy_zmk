@@ -29,11 +29,15 @@
         ae {
             bindings = <&kp DE_A_UMLAUT>;
             key-positions = <11 18>;
+            layers = <0>;
+            timeout-ms = <60>;
         };
 
         ue {
             bindings = <&kp DE_U_UMLAUT>;
             key-positions = <18 7>;
+            timeout-ms = <60>;
+            layers = <0>;
         };
 
         oe {
@@ -45,16 +49,6 @@
             bindings = <&bootloader>;
             key-positions = <22 33 4 5>;
             require-prior-idle-ms = <500>;
-        };
-
-        colon {
-            bindings = <&kp DE_COLON>;
-            key-positions = <4 3>;
-        };
-
-        Col_overkeys {
-            bindings = <&kp F13>;
-            key-positions = <33 21>;
         };
 
         Tog_Col {
