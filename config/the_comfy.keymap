@@ -120,6 +120,76 @@
             layers = <0>;
             require-prior-idle-ms = <100>;
         };
+
+        less_than_combo {
+            bindings = <&kp DE_LESS_THAN>;
+            key-positions = <2 3>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        greater_than_combo {
+            bindings = <&kp DE_GREATER_THAN>;
+            key-positions = <3 4>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        backslash_combo {
+            bindings = <&kp DE_BACKSLASH>;
+            key-positions = <26 27>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        slash_combo {
+            bindings = <&kp DE_FSLH>;
+            key-positions = <24 25>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        left_para_combo {
+            bindings = <&kp DE_LEFT_PARENTHESIS>;
+            key-positions = <5 6>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        r_para_combo {
+            bindings = <&kp DE_RPAR>;
+            key-positions = <6 7>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        left_brace_combo {
+            bindings = <&kp DE_LBRC>;
+            key-positions = <16 17>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        right_brace_combo {
+            bindings = <&kp DE_RBRC>;
+            key-positions = <17 18>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        left_bracket_combo {
+            bindings = <&kp DE_LEFT_BRACKET>;
+            key-positions = <28 29>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        right_brckt_combo {
+            bindings = <&kp DE_RIGHT_BRACKET>;
+            key-positions = <29 30>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
     };
 
     behaviors {
