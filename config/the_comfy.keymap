@@ -51,18 +51,6 @@
             require-prior-idle-ms = <500>;
         };
 
-        Tog_Col {
-            bindings = <&to 0>;
-            key-positions = <0 9>;
-            layers = <1>;
-        };
-
-        Tog_QWE {
-            bindings = <&to 1>;
-            key-positions = <0 9>;
-            layers = <0>;
-        };
-
         screenshot {
             bindings = <&kp PRINTSCREEN>;
             key-positions = <27 26>;
