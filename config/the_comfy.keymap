@@ -87,54 +87,38 @@
             layers = <0>;
             require-prior-idle-ms = <500>;
         };
-    };
 
-    macros {
-        SeeSymMacro: SeeSymMacro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo 0>,
-                <&macro_tap>,
-                <&kp F16>,
-                <&macro_pause_for_release>,
-                <&macro_tap>,
-                <&kp F16>,
-                <&macro_release>,
-                <&mo 0>;
+        sym_combo {
+            bindings = <&mo 3>;
+            key-positions = <14 26>;
+            layers = <0>;
+            require-prior-idle-ms = <100>;
         };
 
-        SeeNavMacro: SeeNavMacro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo 1>,
-                <&macro_tap>,
-                <&kp F14>,
-                <&macro_pause_for_release>,
-                <&macro_tap>,
-                <&kp F14>,
-                <&macro_release>,
-                <&mo 1>;
+        sz {
+            bindings = <&kp DE_SZ>;
+            key-positions = <13 18>;
         };
 
-        SeeNumMacro: SeeNumMacro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo 0>,
-                <&macro_tap>,
-                <&kp F15>,
-                <&macro_pause_for_release>,
-                <&macro_tap>,
-                <&kp F15>,
-                <&macro_release>,
-                <&mo 0>;
+        num_combo {
+            bindings = <&mo 2>;
+            key-positions = <13 25>;
+            layers = <0>;
+            require-prior-idle-ms = <100>;
+        };
 
-            label = "SEENUMMACRO";
+        sym_combo_2 {
+            bindings = <&mo 3>;
+            key-positions = <17 29>;
+            layers = <0>;
+            require-prior-idle-ms = <100>;
+        };
+
+        num_combo_2 {
+            bindings = <&mo 2>;
+            key-positions = <18 30>;
+            layers = <0>;
+            require-prior-idle-ms = <100>;
         };
     };
 
