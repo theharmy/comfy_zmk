@@ -228,38 +228,11 @@
             bindings = <&kp BACKSPACE>, <&kp DEL>;
         };
 
-        SymBehav: SymBehav {
-            compatible = "zmk,behavior-hold-tap";
-            label = "SYMBEHAV";
-            bindings = <&SeeSymMacro>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
-
         to_col: to_col {
             compatible = "zmk,behavior-tap-dance";
             label = "TO_COL";
             #binding-cells = <0>;
             bindings = <&kp TAB>, <&kp TAB>, <&to 0>;
-        };
-
-        NavBehav: NavBehav {
-            compatible = "zmk,behavior-hold-tap";
-            label = "NAVBEHAV";
-            bindings = <&SeeNavMacro>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
-
-        NumBehav: NumBehav {
-            compatible = "zmk,behavior-hold-tap";
-            label = "NUMBEHAV";
-            bindings = <&SeeNumMacro>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
         };
 
         to_qwe: to_qwe {
