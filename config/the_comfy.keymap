@@ -59,22 +59,15 @@
         to_col {
             bindings = <&to 0>;
             key-positions = <22 33>;
-            layers = <1>;
+            layers = <2>;
             require-prior-idle-ms = <500>;
         };
 
         to_qwe {
-            bindings = <&to 1>;
+            bindings = <&to 2>;
             key-positions = <22 33>;
             layers = <0>;
             require-prior-idle-ms = <500>;
-        };
-
-        sym_combo {
-            bindings = <&mo 3>;
-            key-positions = <14 26>;
-            layers = <0>;
-            require-prior-idle-ms = <100>;
         };
 
         sz {
@@ -82,95 +75,11 @@
             key-positions = <13 18>;
         };
 
-        num_combo {
-            bindings = <&mo 2>;
-            key-positions = <13 25>;
-            layers = <0>;
-            require-prior-idle-ms = <100>;
-        };
-
-        sym_combo_2 {
-            bindings = <&mo 3>;
-            key-positions = <17 29>;
-            layers = <0>;
-            require-prior-idle-ms = <100>;
-        };
-
         num_combo_2 {
-            bindings = <&mo 2>;
+            bindings = <&mo 3>;
             key-positions = <18 30>;
             layers = <0>;
             require-prior-idle-ms = <100>;
-        };
-
-        less_than_combo {
-            bindings = <&kp DE_LESS_THAN>;
-            key-positions = <2 3>;
-            timeout-ms = <50>;
-            layers = <0>;
-        };
-
-        greater_than_combo {
-            bindings = <&kp DE_GREATER_THAN>;
-            key-positions = <3 4>;
-            timeout-ms = <50>;
-            layers = <0>;
-        };
-
-        backslash_combo {
-            bindings = <&kp DE_BACKSLASH>;
-            key-positions = <26 27>;
-            timeout-ms = <50>;
-            layers = <0>;
-        };
-
-        slash_combo {
-            bindings = <&kp DE_FSLH>;
-            key-positions = <24 25>;
-            timeout-ms = <50>;
-            layers = <0>;
-        };
-
-        left_para_combo {
-            bindings = <&kp DE_LEFT_PARENTHESIS>;
-            key-positions = <5 6>;
-            timeout-ms = <50>;
-            layers = <0>;
-        };
-
-        r_para_combo {
-            bindings = <&kp DE_RPAR>;
-            key-positions = <6 7>;
-            timeout-ms = <50>;
-            layers = <0>;
-        };
-
-        left_brace_combo {
-            bindings = <&kp DE_LBRC>;
-            key-positions = <16 17>;
-            timeout-ms = <50>;
-            layers = <0>;
-        };
-
-        right_brace_combo {
-            bindings = <&kp DE_RBRC>;
-            key-positions = <17 18>;
-            timeout-ms = <50>;
-            layers = <0>;
-        };
-
-        left_bracket_combo {
-            bindings = <&kp DE_LEFT_BRACKET>;
-            key-positions = <28 29>;
-            timeout-ms = <50>;
-            layers = <0>;
-        };
-
-        right_brckt_combo {
-            bindings = <&kp DE_RIGHT_BRACKET>;
-            key-positions = <29 30>;
-            timeout-ms = <50>;
-            layers = <0>;
         };
     };
 
@@ -221,7 +130,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TO_QWE";
             #binding-cells = <0>;
-            bindings = <&kp TAB>, <&kp TAB>, <&to 1>;
+            bindings = <&kp TAB>, <&kp TAB>, <&to 2>;
         };
     };
 
@@ -231,10 +140,19 @@
         COL {
             display-name = "COL";
             bindings = <
-              &kp DE_Q         &kp W               &kp F               &kp P                 &kp B                            &kp J       &kp L                 &kp U               &kp DE_Y             &kp TAB
-&lt 3 ESCAPE  &hml LCTRL DE_A  &hml LEFT_ALT DE_R  &hml LEFT_GUI DE_S  &hml LEFT_SHIFT DE_T  &kp G                            &kp M       &hmr LEFT_SHIFT DE_N  &hmr LEFT_GUI DE_E  &hmr RIGHT_ALT DE_I  &hmr LCTRL DE_O  &lt 3 ENTER
-&lt 2 BSPC    &kp DE_Z         &kp DE_X            &lt 2 DE_C          &lt 3 DE_D            &kp V                            &kp K       &lt 3 DE_H            &lt 2 DE_COMMA      &kp DE_DOT           &kp DE_MINUS     &lt 1 DELETE
-                               &kp LG(DE_N1)       &kp LG(DE_N2)       &kp ESCAPE            &kp SPACE  &kp TAB    &kp ENTER  &lt 1 BSPC  &mo 4                 &kp LG(DE_N2)       &kp LG(DE_N3)
+              &kp DE_Q         &kp W               &kp F               &kp P                 &kp B                      &kp J           &kp L                 &kp U               &kp DE_Y             &lt 2 TAB
+&lt 4 ESCAPE  &hml LCTRL DE_A  &hml LEFT_ALT DE_R  &hml LEFT_GUI DE_S  &hml LEFT_SHIFT DE_T  &kp G                      &kp M           &hmr LEFT_SHIFT DE_N  &hmr LEFT_GUI DE_E  &hmr RIGHT_ALT DE_I  &hmr LCTRL DE_O  &lt 4 ENTER
+&lt 3 BSPC    &kp DE_Z         &kp DE_X            &lt 3 DE_C          &lt 4 DE_D            &kp V                      &kp K           &lt 4 DE_H            &lt 3 DE_COMMA      &kp DE_DOT           &kp DE_MINUS     &lt 2 DELETE
+                               &kp LG(DE_N1)       &kp LG(DE_N2)       &mo 1                 &kp SPACE  &mo 5    &mo 4  &kp LEFT_SHIFT  &mo 1                 &kp LG(DE_N2)       &kp LG(DE_N3)
+            >;
+        };
+
+        MOD {
+            bindings = <
+        &trans     &trans    &trans    &trans     &trans                    &trans  &trans     &trans    &trans    &trans
+&trans  &sk LCTRL  &sk LALT  &sk LGUI  &sk LSHFT  &trans                    &trans  &sk LSHFT  &sk LGUI  &sk LALT  &sk LCTRL  &trans
+&trans  &trans     &trans    &trans    &trans     &trans                    &trans  &trans     &trans    &trans    &trans     &trans
+                   &trans    &trans    &trans     &trans  &trans    &trans  &trans  &trans     &trans    &trans
             >;
         };
 
@@ -250,10 +168,10 @@
 
         NUM {
             bindings = <
-        &kp DE_N1  &kp DE_N2  &kp DE_N3  &kp DE_N4  &kp DE_N5                    &kp DE_N6  &kp DE_N7  &kp DE_N8  &kp DE_N9  &kp N0
-&trans  &trans     &trans     &trans     &trans     &trans                       &trans     &kp DE_N4  &kp DE_N5  &kp DE_N6  &kp DE_N0  &trans
-&trans  &trans     &trans     &trans     &trans     &trans                       &trans     &kp DE_N1  &kp DE_N2  &kp DE_N3  &trans     &trans
-                   &trans     &trans     &trans     &trans     &trans    &trans  &trans     &trans     &trans     &trans
+        &kp DE_LEFT_PARENTHESIS  &kp N7  &kp N8  &kp N9  &kp DE_RIGHT_PARENTHESIS                    &trans     &trans          &kp DE_ASTERISK  &trans            &trans
+&trans  &kp N0                   &kp N4  &kp N5  &kp N6  &kp DE_PLUS                                 &kp DE_LT  &sk LEFT_SHIFT  &sk LEFT_GUI     &sk LEFT_ALT      &sk LCTRL     &trans
+&trans  &trans                   &kp N1  &kp N2  &kp N3  &kp DE_EQUAL                                &kp DE_GT  &kp DE_FSLH     &kp DE_COMMA     &kp DE_BACKSLASH  &kp DE_MINUS  &trans
+                                 &trans  &trans  &trans  &trans                    &trans    &trans  &trans     &trans          &trans           &trans
             >;
 
             label = "NUM";
@@ -261,21 +179,19 @@
 
         SYM {
             bindings = <
-        &kp DE_SQT          &kp DE_DQT    &kp DE_LESS_THAN  &kp DE_GREATER_THAN  &kp DE_PERCENT                     &kp DE_TILDE    &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_AMPERSAND  &kp DE_UNDER
-&trans  &kp DE_EXCLAMATION  &kp DE_MINUS  &kp DE_PLUS       &kp DE_EQUAL         &kp DE_HASH                        &kp DE_GRAVE    &kp DE_LEFT_BRACE        &kp DE_RIGHT_BRACE        &kp DE_PIPE       &kp DE_COLON  &trans
-&trans  &kp DE_CARET        &kp DE_SLASH  &kp DE_ASTERISK   &kp DE_BACKSLASH     &kp DE_QUESTION                    &kp DE_AT_SIGN  &kp DE_LEFT_BRACKET      &kp DE_RIGHT_BRACKET      &kp DE_DOLLAR     &kp DE_MINUS  &trans
-                            &trans        &trans            &trans               &trans           &trans    &trans  &trans          &trans                   &trans                    &trans
+        &kp DQT          &kp AT               &kp DE_HASH              &kp DE_DOLLAR      &kp DE_PERCENT                       &kp DE_CARET      &kp DE_AMPS   &kp DE_ASTERISK  &kp DE_GRAVE  &kp DE_SQT
+&trans  &kp DE_EXCL      &kp DE_LEFT_BRACKET  &kp DE_LEFT_PARENTHESIS  &kp DE_LEFT_BRACE  &kp DE_PLUS                          &kp DE_LESS_THAN  &sk LSHFT     &sk LEFT_GUI     &sk LEFT_ALT  &sk LCTRL     &trans
+&trans  &kp DE_QUESTION  &kp DE_RBKT          &kp DE_RPAR              &kp DE_RBRC        &kp DE_EQUAL                         &kp GT            &kp DE_SLASH  &kp DE_PIPE      &kp DE_BSLH   &kp DE_MINUS  &trans
+                         &trans               &trans                   &trans             &kp DE_UNDERSCORE  &trans    &trans  &trans            &trans        &trans           &trans
             >;
-
-            label = "SYM";
         };
 
         NAV {
             bindings = <
-        &kp N1     &kp N2         &kp N3         &kp N4     &kp N5                    &trans  &kp HOME         &kp PG_DN                &kp PG_UP             &kp END
-&trans  &kp LCTRL  &kp LALT       &kp LEFT_GUI   &kp LSHFT  &trans                    &trans  &mt LSHIFT LEFT  &mt LEFT_GUI DOWN_ARROW  &kp UP                &kp RIGHT_ARROW   &trans
-&trans  &trans     &trans         &trans         &trans     &trans                    &trans  &kp LG(DE_SZ)    &kp LG(LS(DE_SZ))        &kp LG(LS(DE_ACUTE))  &kp LG(DE_ACUTE)  &trans
-                   &kp LG(DE_N4)  &kp LG(DE_N5)  &trans     &trans  &trans    &trans  &trans  &trans           &kp LG(DE_N5)            &kp LG(DE_N6)
+        &kp N1      &kp N2         &kp N3         &kp N4     &kp N5                         &kp HOME        &kp PG_DN          &kp PG_UP             &kp END           &trans
+&trans  &sk LCTRL   &sk LEFT_ALT   &sk LEFT_GUI   &sk LSHFT  &kp TAB                        &kp LEFT_ARROW  &kp DOWN           &kp UP                &kp RIGHT         &kp BSPC  &trans
+&trans  &kp ESCAPE  &trans         &trans         &kp ENTER  &key_repeat                    &kp LG(DE_SZ)   &kp LS(LG(DE_SZ))  &kp LS(LG(DE_ACUTE))  &kp LG(DE_ACUTE)  &kp DEL   &trans
+                    &kp LG(DE_N4)  &kp LG(DE_N5)  &trans     &trans       &trans    &trans  &kp ENTER       &trans             &kp LG(DE_N5)         &kp LG(DE_N6)
             >;
 
             label = "NAV";
